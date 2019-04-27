@@ -118,6 +118,7 @@ namespace LibraryProject.View.AdminArea.AppUserView
             user.UserName = txtUserNameUpdate.Text;
             user.Password = txtPasswordUpdate.Text;
             user.Status = DAL.ORM.Enum.Status.Updated;
+            user.UpdateDate = DateTime.Now;
 
             db.SaveChanges();
 
@@ -131,6 +132,7 @@ namespace LibraryProject.View.AdminArea.AppUserView
         {
             AppUser user = db.AppUsers.FirstOrDefault(x => x.ID == id);
             user.Status = DAL.ORM.Enum.Status.Deleted;
+            user.DeleteDate = DateTime.Now;
 
             db.SaveChanges();
 

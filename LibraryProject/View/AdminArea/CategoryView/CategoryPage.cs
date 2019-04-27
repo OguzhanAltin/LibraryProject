@@ -85,6 +85,7 @@ namespace LibraryProject.View.AdminArea.CategoryView
             category.CategoryName = txtCategoryUpdateName.Text;
             category.CategoryDescription = txtCategoryUpdateDescription.Text;
             category.Status = DAL.ORM.Enum.Status.Updated;
+            category.UpdateDate = DateTime.Now;
             db.SaveChanges();
 
             CategoryTakeList();
@@ -95,6 +96,7 @@ namespace LibraryProject.View.AdminArea.CategoryView
         {
             Category category = db.Categories.FirstOrDefault(x => x.ID == id);
             category.Status = DAL.ORM.Enum.Status.Deleted;
+            category.DeleteDate = DateTime.Now;
             db.SaveChanges();
 
             CategoryTakeList();

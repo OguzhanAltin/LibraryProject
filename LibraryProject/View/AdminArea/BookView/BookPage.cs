@@ -110,6 +110,7 @@ namespace LibraryProject.View.AdminArea.BookView
             book.BookName = txtBookNameUpdate.Text;
             book.BookDescription = txtBookDescriptionUpdate.Text;
             book.Status = DAL.ORM.Enum.Status.Updated;
+            book.UpdateDate = DateTime.Now;
 
             db.SaveChanges();
 
@@ -122,6 +123,7 @@ namespace LibraryProject.View.AdminArea.BookView
         {
             Book book = db.Books.FirstOrDefault(y => y.ID == id);
             book.Status = DAL.ORM.Enum.Status.Deleted;
+            book.DeleteDate = DateTime.Now;
 
             db.SaveChanges();
 
